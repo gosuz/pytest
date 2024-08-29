@@ -35,7 +35,7 @@ class Deck:
 
     def create_deck(self):
         # Create a standard deck of 52 cards
-        suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']  # Four suits
+        suits = ['♡', '◇', '♧', '♤']  # Four suits
         ranks = {
             '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
             '10': 10, 'J': 10, 'Q': 10, 'K': 10, 'A': 11  # Ranks with corresponding values
@@ -79,7 +79,7 @@ class BlackjackGame:
             return False  # Stop the game
 
         # Get player's bet input
-        bet = int(input(f"You have {self.player_funds} funds. Enter your bet: "))
+        bet = int(input(f"Current Fund: {self.player_funds}\nEnter your bet: "))
         if bet > self.player_funds:
             print("Insufficient funds for that bet. Try again.")
             return True  # Continue playing
@@ -89,8 +89,9 @@ class BlackjackGame:
         dealer_hand = [self.deck.deal_card(), self.deck.deal_card()]
 
         # Show player's hand and one of the dealer's cards
+        print(f"\nDealer's hand: [{dealer_hand[0]}, ?]")  # Hide one of the dealer's cards
         print(f"Your hand: {player_hand} - Value: {self.calculate_hand_value(player_hand)}")
-        print(f"Dealer's hand: [{dealer_hand[0]}, ?]")  # Hide one of the dealer's cards
+
 
         # Player's turn
         while self.calculate_hand_value(player_hand) < BLACKJACK:
