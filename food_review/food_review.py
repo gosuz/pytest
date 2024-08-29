@@ -39,7 +39,8 @@ class FoodReviewReport:
 
 # Example usage:
 
-#When you define the __str__ method inside a class, you are essentially telling Python, "When someone tries to print this object, show this specific string instead."
+# When you define the __str__ method inside a class, you are essentially telling Python,
+# "When someone tries to print this object, show this specific string instead."
 
 # Creating an instance of FoodReviewReport
 report = FoodReviewReport()
