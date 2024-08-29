@@ -22,8 +22,9 @@
 #             return f"Withdrew: {amount}. Balance : {self.balance}"
 
 
-class Book:
-    def __init__(self, title, author, rating):
-        self.title = title
-        self.author = author
-        self.rating = rating
+
+
+class BankAccount:
+    def __init__(self, name, balance=0):
+            self.name = name
+            self.balance = balance

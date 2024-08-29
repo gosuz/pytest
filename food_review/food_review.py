@@ -1,59 +1,32 @@
-class Review:
-    def __init__(self, dish, rating, comments):
-        self.dish = dish
-        self.rating = rating  # Rating should be between 1 and 5
-        self.comments = comments
+class FoodReview:
+    def __init__(self, name, country, rating=0, comment="n/a"):
+        self.name = name #str
+        self.country = country #str
+        self.rating = rating #int
+        self.comment = comment #str
 
-    def __str__(self):
-        return (f"Dish: {self.dish}\n"
-                f"Rating: {self.rating}/5\n"
-                f"Comments: {self.comments}\n")
+    def description(self):
+        return(f"{self.name} comes from {self.country}, and I gave it a {self.rating}. Here are the Notes: {self.comment}")
 
-class FoodReviewReport:
-    def __init__(self):
-        self.reviews = []
+    def update_rating(self, new_rating):
+        if new_rating >= 0 and new_rating <= 5:
+            self.rating = new_rating
 
-    def add_review(self, dish, rating, comments):
-        # Validate the rating to be between 1 and 5
-        if 1 <= rating <= 5:
-            new_review = Review(dish, rating, comments)
-            self.reviews.append(new_review)
-            return f"Review for {dish} added successfully!"
-        else:
-            return "Rating must be between 1 and 5."
+    def update_comment(self, new_comment):
+        self.comment = new_comment
 
-    def view_all_reviews(self):
-        if not self.reviews:
-            return "No reviews available."
-        return "\n".join(str(review) for review in self.reviews)
 
-    def generate_summary(self):
-        if not self.reviews:
-            return "No reviews available to summarize."
+pho = FoodReview("Pho", "Vietnam", 5, "My go to cuisine")
 
-        total_reviews = len(self.reviews)
-        average_rating = sum(review.rating for review in self.reviews) / total_reviews
+ramen = FoodReview("Ramen", "Japan", 3)
 
-        return (f"Total Reviews: {total_reviews}\n"
-                f"Average Rating: {average_rating:.2f}/5\n")
+print(ramen.description())
 
-# Example usage:
+ramen.comments = "I like it. But its a bit over rated imo."
 
-# When you define the __str__ method inside a class, you are essentially telling Python,
-# "When someone tries to print this object, show this specific string instead."
+print(ramen.comments)
 
-# Creating an instance of FoodReviewReport
-report = FoodReviewReport()
 
-# Adding some reviews
-print(report.add_review("Omakase", 5, "Amazing sushi, the best I've ever had!"))
-print(report.add_review("Tonkotsu Ramen", 4, "Delicious broth and perfectly cooked noodles."))
-print(report.add_review("Korean BBQ", 3, "Good but a bit overpriced."))
-
-# Viewing all reviews
-print("\nAll Reviews:\n")
-print(report.view_all_reviews())
-
-# Generating a summary report
-print("\nSummary Report:\n")
-print(report.generate_summary())
+ramen.update_rating(4)
+ramen.update_comment("Actually, after eating Tsukemen, its a lot better.")
+print(ramen.description())
