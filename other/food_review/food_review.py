@@ -16,17 +16,45 @@ class FoodReview:
         self.comment = new_comment
 
 
-pho = FoodReview("Pho", "Vietnam", 5, "My go to cuisine")
 
-ramen = FoodReview("Ramen", "Japan", 3)
+# This is the Class
+class Noodles:
+    def __init__(self, name, country, spice=0, rating=0, comments=[]):
+        self.name = name
+        self.country = country
+        self.spice = spice
+        self.rating = rating
+        self.comments = comments
 
-print(ramen.description())
+    def __str__(self):
+        return f"{self.name} is a noodle dish from {self.country}. I give it a Rating:{self.rating}"
 
-ramen.comments = "I like it. But its a bit over rated imo."
+    def update_rating(self, new_score):
+        self.rating = new_score
 
-print(ramen.comments)
+    def add_comments(self, comment):
+        self.comments.append(comment)
+
+    def show_comments(self):
+        if len(self.comments) == 0:
+            return "No Comments Listed"
+        else:
+            listed_comments = '\n'.join(self.comments)
+            return listed_comments
+
+# These are Instants
+
+pho = Noodles('Pho', 'Vietnam', 3, 10,)
 
 
-ramen.update_rating(4)
-ramen.update_comment("Actually, after eating Tsukemen, its a lot better.")
-print(ramen.description())
+pho.add_comments("Pho is the best noodle dish in the world.")
+pho.add_comments("I agree. Nothing is better")
+
+
+naengmyun = Noodles("Naengmyun", "Korea", 0, 9)
+print(naengmyun)
+
+naengmyun.add_comments("Great during summer. Meh during winter")
+naengmyun.update_rating(7)
+
+print(naengmyun)
