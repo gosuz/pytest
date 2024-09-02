@@ -9,6 +9,7 @@
 import random
 
 # Constants
+# All Caps means they are const variables.
 BLACKJACK = 21  # The target value to achieve without exceeding
 DEALER_STAND = 17  # The minimum value at which the dealer will stand
 INITIAL_FUNDS = 20  # Starting funds for the player
