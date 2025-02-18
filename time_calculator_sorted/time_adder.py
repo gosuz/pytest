@@ -1,3 +1,5 @@
+# added comment to trigger difference to be able to merge my folders
+
 # Ask user to input hrs and mins
 # Keep asking until they enter Y (to prompt done and exit loop)
 # Store the data in the format as [prompt 1], [prompt 2] .....
