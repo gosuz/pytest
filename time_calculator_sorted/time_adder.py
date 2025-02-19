@@ -7,21 +7,33 @@
 
 
 def get_user_input():
+    # create a list
     times_list = []
     user_input_1 = 0
     while (user_input_1 != 'Y'):
-        # create a list
-        user_input_1 = input("Enter the hour(s)   or enter 'Y' if you're done: ")
-        if (user_input_1 or user_input_2) == 'Y':
-            return f"Displays time  list: {times_list} "
+            user_input_1 = input("Enter the hour(s)   or enter 'Y' if you're done: ")
+            if (user_input_1 or user_input_2) == 'Y':
+                return f"Displays time  list: {times_list} "
 
-        user_input_2 = input("Enter the minute(s):      ")
-        time = [user_input_1, user_input_2]
-        print(time)
-        times_list += [time]
-        print(times_list)
+            user_input_2 = input("Enter the minute(s):      ")
+
+            int_user_input_1 = int(user_input_1)
+            int_user_input_2 = int(user_input_2)
+
+            try:
+                if user_input_2 >= 60:
+                    print("Please enter the value again")
+            except:
+                print("input: ")
+
+            time = [int_user_input_1, ]
+            print(time)
+            times_list += [time]
+            print(times_list)
 
 get_user_input()
+
+# shouldn't accept input2(minutes) to be greater than 59
 
 
     # [0, 50]
@@ -41,10 +53,10 @@ def time_list_creator(hr, min):
 
     # change this so it's interactive. Gets input from prompt
 
-    int_hr = int(hr)
-    int_min = int(min)
-    # print(int_hr)
-    # print(int_min)
+    # int_hr = int(hr)
+    # int_min = int(min)
+    # # print(int_hr)
+    # # print(int_min)
 
     if int_min <= 59:
         # create the list
