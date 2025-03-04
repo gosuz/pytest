@@ -14,9 +14,9 @@
 
 # another possible scenario is the user gives a blank input. Should handle the value as 0 or ask them to reenter value
 
+# time_list_creato => (1) def get_inputs() and (2) time_list_creator(get_inputs)
 
-
-def time_list_creator():
+def get_inputs():
     """Ask user for input (for hours and minutes) until they type 'q'. Then create a list of hr and min
 
     :param N/A
@@ -31,8 +31,7 @@ def time_list_creator():
     while True:
         hr = input("Enter hour(s) or type 'q' to quit: ")
         if hr == "q":
-            print(time_list)
-            return time_list #the list up to this point e.g [[1,43], [2,26], [3,10]]
+            break
 
         minutes = input("Enter minnute(s): ")
 
@@ -46,6 +45,17 @@ def time_list_creator():
 
         print(time_list)
     return time_list
+
+def time_list_creator(get_inputs):
+    """
+    Ask user for input (for hours and minutes) until they type 'q'. Then create a list of hr and min
+
+    :param get_inputs: list- list of inputs and are integers
+
+    :return: list - hr and minute integer value.
+    """
+    return get_inputs()
+
 
 def check_min_greater_than_59(minutes):
     """ Checks if the minutes is greater than 59. Converts it into hrs and minutes if it is.
@@ -94,7 +104,7 @@ def display_as_string(time):
     """
     string_total= f"Total time: {time[0]}hrs {time[1]}minute(s)"
     # print(string_total)
-    print("checking dispaly_as_string.")
+    print("checking display_as_string.")
     return string_total
 
 
@@ -131,8 +141,8 @@ def time_adder(list_of_times):
 
     print("checking time_adder")
 
-list_of_times = time_list_creator()
-time_adder(list_of_times)
+# list_of_times = time_list_creator(get_inputs)
+# time_adder(list_of_times)
 
 # time_adder([[0,55],[0,33],[1,50]])
 
