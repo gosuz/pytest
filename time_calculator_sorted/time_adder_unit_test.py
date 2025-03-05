@@ -1,8 +1,8 @@
 # from unittest.mock import patch
 # from time_adder import time_list_creator, check_min_greater_than_59, display_as_string, time_adder, get_inputs
-
+import pytest
 from unittest.mock import patch
-from time_adder import time_list_creator, get_inputs, check_min_greater_than_59
+from time_adder import time_list_creator, get_inputs, check_min_greater_than_59, display_as_string
 
 # unit tests for time adder
 '''
@@ -34,9 +34,13 @@ def test_check_min_greater_than_59():
     assert check_min_greater_than_59("61") == [1, 1]
     assert check_min_greater_than_59("0") == [0, 0]
 
+def test_display_as_string():
+    # cases that should always pass
+    assert display_as_string([1, 20]) == "Total time: 1hrs 20minute(s)"
+    assert display_as_string([0, 50]) == "Total time: 0hrs 50minute(s)"
+    assert display_as_string([2, 15]) == "Total time: 2hrs 15minute(s)"
 
-
-
-
-    # needs to test what?? what is the unit test? is it going to check that if it's 59,it's going to be return [0, int_min]
-    # and if its less than 59 it would return [hrs, mins]
+    # edge cases
+    assert display_as_string([0, 59]) == "Total time: 0hrs 59minute(s)"
+    assert display_as_string([1, 0]) == "Total time: 1hrs 0minute(s)"
+    assert display_as_string([0, 0]) == "Total time: 0hrs 0minute(s)"
