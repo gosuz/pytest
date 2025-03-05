@@ -2,7 +2,7 @@
 # from time_adder import time_list_creator, check_min_greater_than_59, display_as_string, time_adder, get_inputs
 import pytest
 from unittest.mock import patch
-from time_adder import time_list_creator, get_inputs, check_min_greater_than_59, display_as_string
+from time_adder import time_list_creator, get_inputs, check_min_greater_than_59, display_as_string, time_adder
 
 # unit tests for time adder
 '''
@@ -44,3 +44,13 @@ def test_display_as_string():
     assert display_as_string([0, 59]) == "Total time: 0hrs 59minute(s)"
     assert display_as_string([1, 0]) == "Total time: 1hrs 0minute(s)"
     assert display_as_string([0, 0]) == "Total time: 0hrs 0minute(s)"
+
+# create test for time_adder()
+def test_time_adder():
+    assert time_adder([[0,10],[0,20]]) == "Total time: 0hrs 30minute(s)"
+    assert time_adder([[1,30],[0,15]]) == "Total time: 1hrs 45minute(s)"
+    assert time_adder([[2,55],[0,5]]) == "Total time: 3hrs 0minute(s)"
+
+    # edge cases
+    assert time_adder([[0,1],[0,59]]) == "Total time: 1hrs 0minute(s)"
+    assert time_adder([[0,1],[0,60]]) == "Total time: 1hrs 1minute(s)"
