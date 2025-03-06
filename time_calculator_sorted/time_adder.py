@@ -42,8 +42,7 @@ def get_inputs():
             time_list.append(time)
         except:
             print("Invalid input. Please enter whole numbers")
-
-        print(time_list)
+        # print(time_list)
     return time_list
 
 def time_list_creator(get_inputs):
@@ -71,7 +70,7 @@ def check_min_greater_than_59(minutes):
     # 1. convert minutes into integer
     int_min = int(minutes)
     # 2. check if if minutes is greater than 59:
-    print("checking check min greater than 59.")
+    # print("checking check min greater than 59.")
     if int_min > 59:
         # Get hrs: divide it by 60.
         hrs = int_min//60
@@ -104,7 +103,7 @@ def display_as_string(time):
     """
     string_total= f"Total time: {time[0]}hrs {time[1]}minute(s)"
     # print(string_total)
-    print("checking display_as_string.")
+    # print("checking display_as_string.")
     return string_total
 
 
@@ -139,7 +138,7 @@ def time_adder(list_of_times):
     print(display_as_string(total_list))
     return display_as_string(total_list)
 
-    print("checking time_adder")
+    # print("checking time_adder")
 
 # list_of_times = time_list_creator(get_inputs)
 # time_adder(list_of_times)
