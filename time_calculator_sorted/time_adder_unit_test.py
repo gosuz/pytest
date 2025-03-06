@@ -50,6 +50,9 @@ def test_time_adder():
     assert time_adder([[0,10],[0,20]]) == "Total time: 0hrs 30minute(s)"
     assert time_adder([[1,30],[0,15]]) == "Total time: 1hrs 45minute(s)"
     assert time_adder([[2,55],[0,5]]) == "Total time: 3hrs 0minute(s)"
+    assert time_adder([[2,55],[0,5],[1,5]]) == "Total time: 4hrs 5minute(s)"
+
+
 
     # edge cases
     assert time_adder([[0,1],[0,59]]) == "Total time: 1hrs 0minute(s)"
