@@ -1,4 +1,5 @@
-# had to add comment
+# chaged code
+
 
 # Make a Black Jack Game
 # Player Starts with a fund of 20
